@@ -1,68 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laxmi Chaudhary — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <title>Laxmi | UI/UX Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <section class="hero" id="hero">
-    <div class="glow-blob" id="blob"></div>
-    <div class="glow-inner" id="inner"></div>
-    <div class="cursor-dot" id="dot"></div>
+  <!-- NAVBAR -->
 
-    <div class="content">
-      <div class="name-label">Laxmi Chaudhary</div>
-      <div class="portfolio-word">P<span class="italic-part">ortfoli</span>o</div>
-      <div class="role-label">Graphic Designer &nbsp;&amp;&nbsp; UI/UX Designer</div>
+  <nav>
+    <div class="container nav-wrapper">
+
+      <div class="logo">
+        LAXMI
+      </div>
+
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
     </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero container">
+
+    <div class="hero-content fade">
+
+      <h1>
+        UI/UX <br>
+        Designer
+      </h1>
+
+      <p>
+        Creating intuitive digital experiences through user-centered design,
+        research and strategy.
+      </p>
+
+      <a href="#work" class="hero-btn">
+        View Projects
+      </a>
+
+    </div>
+
   </section>
 
-  <script>
-    const hero = document.getElementById('hero');
-    const blob = document.getElementById('blob');
-    const inner = document.getElementById('inner');
-    const dot = document.getElementById('dot');
+  <!-- PROJECTS -->
 
-    let mx = 0, my = 0;
-    let bx = 0, by = 0;
-    let ix = 0, iy = 0;
-    let started = false;
+  <section id="work" class="section container">
 
-    hero.addEventListener('mousemove', e => {
-      const r = hero.getBoundingClientRect();
-      mx = e.clientX - r.left;
-      my = e.clientY - r.top;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-      if (!started) {
-        bx = mx; by = my;
-        ix = mx; iy = my;
-        started = true;
-      }
-    });
+    <div class="section-title">
+      Selected Work
+    </div>
 
-    function lerp(a, b, t) { return a + (b - a) * t; }
+    <div class="projects">
 
-    function tick() {
-      if (started) {
-        bx = lerp(bx, mx, 0.06);
-        by = lerp(by, my, 0.06);
-        ix = lerp(ix, mx, 0.12);
-        iy = lerp(iy, my, 0.12);
-        blob.style.left = bx + 'px';
-        blob.style.top = by + 'px';
-        inner.style.left = ix + 'px';
-        inner.style.top = iy + 'px';
-      }
-      requestAnimationFrame(tick);
-    }
+      <div class="project-card fade">
+        <div class="project-image"></div>
+        <h3>RideEasy</h3>
+        <p>Cab booking app focused on speed and convenience.</p>
+      </div>
 
-    tick();
-  </script>
+      <div class="project-card fade">
+        <div class="project-image"></div>
+        <h3>GovHub</h3>
+        <p>Government jobs and schemes discovery platform.</p>
+      </div>
+
+      <div class="project-card fade">
+        <div class="project-image"></div>
+        <h3>Glow</h3>
+        <p>Luxury jewelry e-commerce platform.</p>
+      </div>
+
+      <div class="project-card fade">
+        <div class="project-image"></div>
+        <h3>Rabbie</h3>
+        <p>Mental wellness and self-care mobile application.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about" class="section container">
+
+    <div class="section-title">
+      About
+    </div>
+
+    <div class="about-grid">
+
+      <div>
+        <h2>
+          Designing products people love using.
+        </h2>
+      </div>
+
+      <div>
+
+        <p class="about-text">
+          I'm Laxmi, a UI/UX Designer passionate about creating digital
+          experiences that solve real user problems through research,
+          wireframing, prototyping and visual design.
+        </p>
+
+        <div class="skills">
+
+          <span class="skill">Figma</span>
+          <span class="skill">UI Design</span>
+          <span class="skill">UX Research</span>
+          <span class="skill">Wireframing</span>
+          <span class="skill">Prototyping</span>
+          <span class="skill">Graphic Design</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="section contact container fade">
+
+    <h2>
+      Let's Work Together
+    </h2>
+
+    <p>
+      Available for internships, freelance projects and full-time roles.
+    </p>
+
+    <a href="mailto:hello@example.com" class="hero-btn">
+      Get In Touch
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    © 2026 Laxmi. All Rights Reserved.
+  </footer>
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
