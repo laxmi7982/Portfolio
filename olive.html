@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olive Project</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  font-family:Arial, sans-serif;
+  opacity:1;
+  transition:opacity .4s ease;
+}
+
+.hero{
+  padding:60px 40px;
+}
+
+.hero h1{
+  font-size:60px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:#999;
+}
+
+.gallery{
+  padding:40px;
+  display:grid;
+  gap:30px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:12px;
+
+  opacity:0;
+  transform:translateY(100px);
+
+  animation:slideUp .8s ease forwards;
+}
+
+.gallery img:nth-child(2){
+  animation-delay:.2s;
+}
+
+.gallery img:nth-child(3){
+  animation-delay:.4s;
+}
+
+.gallery img:nth-child(4){
+  animation-delay:.6s;
+}
+
+.gallery img:nth-child(5){
+  animation-delay:.8s;
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateY(100px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:12px 20px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  border-radius:30px;
+}
+</style>
+
+</head>
+<body>
+
+<a href="index.html" class="back-btn">← Back</a>
+
+<section class="hero">
+  <h1>Olive Brand Design</h1>
+  <p>Brand Identity • Packaging • Social Media Design</p>
+</section>
+
+<section class="gallery">
+
+  <img src="images/olive-1.jpg" alt="">
+  <img src="images/olive-2.jpg" alt="">
+  <img src="images/olive-3.jpg" alt="">
+  <img src="images/olive-4.jpg" alt="">
+  <img src="images/olive-5.jpg" alt="">
+
+</section>
+
+<script>
+// Page load animation
+window.addEventListener("load",()=>{
+  document.body.style.opacity="1";
+});
+</script>
+
+</body>
+</html>
