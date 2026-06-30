@@ -110,6 +110,28 @@
     .hero-arr svg { animation: bob 2s ease infinite; }
     @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
 
+     /* ════════════════════════════════════════════
+       MARQUEE / TICKER
+    ════════════════════════════════════════════ */
+    .marquee-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 14px 0;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 18s linear infinite;
+    }
+    .marquee-track span {
+      font-size: 11px; color: var(--muted);
+      letter-spacing:.1em; text-transform:uppercase;
+      padding: 0 32px;
+    }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+
     /* ════════════════════════════════════════════
        PROJECT THUMBNAILS STRIP (below hero)
     ════════════════════════════════════════════ */
@@ -340,27 +362,7 @@
     }
     .all-works-link:hover { border-color:#fff; }*/
 
-    /* ════════════════════════════════════════════
-       MARQUEE / TICKER
-    ════════════════════════════════════════════ */
-    .marquee-wrap {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      padding: 14px 0;
-      white-space: nowrap;
-    }
-    .marquee-track {
-      display: inline-flex;
-      animation: marquee 18s linear infinite;
-    }
-    .marquee-track span {
-      font-size: 11px; color: var(--muted);
-      letter-spacing:.1em; text-transform:uppercase;
-      padding: 0 32px;
-    }
-    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
+   
     /* ════════════════════════════════════════════
        FOOTER / BIG NAME
     ════════════════════════════════════════════ */
