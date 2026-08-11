@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaudhary Mobile — Brand Identity Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   EDIT ZONE 1 — CASE STUDY TOKENS
+   Change these for every new case study. Nothing else in the
+   CSS needs to move — nav, grid, cards all read from here.
+   ============================================================ */
+:root{
+  --color-1:#572979;   /* primary / deep */
+  --color-2:#7B20B7;   /* accent / bright */
+  --color-3:#858EA1;   /* secondary / muted */
+  --color-4:#3E4450;   /* dark neutral */
+  --color-5:#444444;   /* text / dark */
+  --color-6:#E8E8ED;   /* light bg */
+  --white:#FFFFFF;
+
+  --font-display:'Raleway', sans-serif;
+  --font-body:'Open Sans', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);color:var(--color-5);background:var(--white);line-height:1.65;}
+h1,h2,h3,.display{font-family:var(--font-display);}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+section{padding:64px 0;}
+
+/* ---------- back link ---------- */
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:600;color:var(--color-3);
+  padding:24px 0 0;
+}
+.back-link:hover{color:var(--color-2);}
+
+/* ---------- title block ---------- */
+.title-block{padding:32px 0 48px;border-bottom:1px solid var(--color-6);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.title-block .eyebrow{
+  font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--color-2);margin-bottom:14px;
+}
+.title-block h1{font-size:38px;font-weight:800;color:var(--color-1);margin-bottom:0;letter-spacing:-.4px;}
+.title-logo{width:100px;height:100px;object-fit:contain;flex-shrink:0;}
+
+/* ---------- about + meta ---------- */
+.about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:56px;align-items:start;}
+.about-grid p{font-size:15px;color:var(--color-5);max-width:520px;}
+.meta-list{display:flex;flex-direction:column;gap:22px;}
+.meta-item h4{
+  font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--color-3);margin-bottom:6px;
+}
+.meta-item p{font-size:14.5px;color:var(--color-5);font-weight:600;}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr;}}
+
+/* ---------- color palette ---------- */
+.palette-heading{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--color-3);margin-bottom:18px;}
+.palette-strip{display:grid;grid-template-columns:2fr 1fr;gap:2px;margin-bottom:2px;border-radius:10px;overflow:hidden;}
+.swatch-lg{height:70px;display:flex;align-items:center;justify-content:flex-end;padding:0 22px;}
+.swatch-lg span{font-size:13px;font-weight:700;color:var(--white);}
+.swatch-lg.light span{color:var(--color-5);}
+.palette-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;border-radius:10px;overflow:hidden;}
+.swatch{height:96px;display:flex;align-items:flex-end;padding:14px;}
+.swatch span{font-size:12.5px;font-weight:700;color:var(--white);}
+
+/* ---------- mockup gallery ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1.6fr;gap:14px;margin-bottom:14px;}
+.gallery-2{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-bottom:14px;}
+.gallery-4{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.tile{
+  border-radius:14px;overflow:hidden;position:relative;
+  background:var(--color-6);
+  min-height:220px;
+}
+.tile.dark{background:var(--color-4);}
+.tile.brand{background:var(--color-1);}
+/* EDIT ZONE 2 — swap each .tile's placeholder <div> for a real
+   <img src="assets/your-export.jpg" alt="..."> once exported
+   from Illustrator/Photoshop. Keep the .tile wrapper + caption. */
+.placeholder{
+  width:100%;height:100%;min-height:220px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:rgba(255,255,255,0.55);
+}
+.tile:not(.dark):not(.brand) .placeholder{color:var(--color-3);}
+.placeholder svg{width:32px;height:32px;opacity:.6;}
+.placeholder span{font-size:11.5px;font-weight:600;letter-spacing:.03em;}
+.tile-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:10px 14px;font-size:11.5px;font-weight:600;
+  background:linear-gradient(0deg, rgba(0,0,0,0.55), transparent);
+  color:var(--white);opacity:0;transition:opacity .15s;
+}
+.tile:hover .tile-caption{opacity:1;}
+
+/* ---------- typography specimen ---------- */
+.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:10px;overflow:hidden;}
+.type-card{padding:36px 30px;}
+.type-card.dark{background:var(--color-1);color:var(--white);}
+.type-card.light{background:var(--color-6);color:var(--color-5);}
+.type-card h4{font-size:15px;font-weight:700;margin-bottom:4px;}
+.type-card p.desc{font-size:12.5px;opacity:.75;max-width:280px;margin-bottom:22px;}
+.type-card .glyph{font-size:64px;font-weight:700;line-height:1;margin-bottom:18px;}
+.type-card .abc{font-size:11px;letter-spacing:.02em;opacity:.7;line-height:1.8;}
+@media(max-width:640px){.type-grid,.gallery,.gallery-2,.palette-strip,.palette-row{grid-template-columns:1fr;}}
+
+/* ---------- footer nav ---------- */
+.case-footer{
+  border-top:1px solid var(--color-6);padding:40px 0 60px;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+}
+.case-footer a{
+  font-size:13.5px;font-weight:700;color:var(--color-2);
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; Back to portfolio</a>
+
+  <div class="title-block">
+    <!-- EDIT ZONE 3 — title + eyebrow per case study -->
+    <div>
+      <div class="eyebrow">Brand identity · Print &amp; digital</div>
+      <h1>Chaudhary Mobile</h1>
+    </div>
+    <!-- EDIT ZONE 4 — logo image. Swap src for each new case study,
+         or delete this <img> tag entirely if a project has no logo. -->
+    <img class="title-logo" src="assets/chaudhary-mobile-logo.png" alt="Chaudhary Mobile logo">
+  </div>
+</div>
+
+<section>
+  <div class="wrap about-grid">
+    <div>
+      <p>Chaudhary Mobile is a mobile repair and service company specializing in reliable smartphone repair solutions. The brand offers fast, affordable, and high-quality repair services, including screen replacement, battery replacement, water damage recovery, hardware and software repairs, and genuine spare parts. With certified technicians, quick turnaround times, and a customer-first approach, Chaudhary Mobile focuses on restoring devices efficiently while building trust through quality service and transparent pricing.</p>
+    </div>
+    <div class="meta-list">
+      <div class="meta-item"><h4>Sector</h4><p>Mobile phone repair &amp; service</p></div>
+      <div class="meta-item"><h4>Tools used</h4><p>Adobe Illustrator, Adobe Photoshop</p></div>
+      <div class="meta-item"><h4>Deliverables</h4><p>Logo, brand guidelines, mockups, print collateral</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="palette-heading">Color palette</div>
+    <div class="palette-strip">
+      <div class="swatch-lg" style="background:var(--color-1);"><span>#572979</span></div>
+      <div class="swatch-lg light" style="background:var(--color-6);"><span>#E8E8ED</span></div>
+    </div>
+    <div class="palette-row">
+      <div class="swatch" style="background:var(--color-2);"><span>#7B20B7</span></div>
+      <div class="swatch" style="background:var(--color-3);"><span>#858EA1</span></div>
+      <div class="swatch" style="background:var(--color-4);"><span>#3E4450</span></div>
+      <div class="swatch" style="background:var(--color-5);"><span>#444444</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="palette-heading">Applications &amp; mockups</div>
+
+    <!-- Row 1: logo mark + hero mockup -->
+    <div class="gallery">
+      <div class="tile brand" style="display:flex;align-items:center;justify-content:center;padding:30px;">
+        <img src="assets/chaudhary-mobile-logo.png" alt="Chaudhary Mobile logo" style="width:auto;height:100%;max-height:200px;object-fit:contain;">
+        <div class="tile-caption">Primary logo</div>
+      </div>
+      <div class="tile dark">
+        <div class="placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M3 9h18"/></svg>
+          <span>Laptop / hero mockup — swap image</span>
+        </div>
+        <div class="tile-caption">Website hero mockup</div>
+      </div>
+    </div>
+
+    <!-- Row 2: mobile UI + apparel -->
+    <div class="gallery-2">
+      <div class="tile">
+        <div class="placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="2" width="12" height="20" rx="2"/></svg>
+          <span>Mobile home screen — swap image</span>
+        </div>
+        <div class="tile-caption">App icon on device</div>
+      </div>
+      <div class="tile">
+        <div class="placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 20c1-4 4-6 8-6s7 2 8 6"/><circle cx="12" cy="8" r="4"/></svg>
+          <span>Cap / apparel — swap image</span>
+        </div>
+        <div class="tile-caption">Branded apparel</div>
+      </div>
+    </div>
+
+    <!-- Row 3: business card + logo lockups -->
+    <div class="gallery-4">
+      <div class="tile" style="grid-column:span 2;">
+        <div class="placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/></svg>
+          <span>Business card — swap image</span>
+        </div>
+        <div class="tile-caption">Stationery</div>
+      </div>
+      <div class="tile brand" style="display:flex;align-items:center;justify-content:center;padding:20px;">
+        <img src="assets/chaudhary-mobile-logo.png" alt="Logo on brand color" style="width:auto;height:100%;max-height:150px;object-fit:contain;">
+        <div class="tile-caption">Logo on brand color</div>
+      </div>
+      <div class="tile" style="display:flex;align-items:center;justify-content:center;padding:20px;background:var(--white);border:1px solid var(--color-6);">
+        <img src="assets/chaudhary-mobile-logo.png" alt="Logo on white" style="width:auto;height:100%;max-height:150px;object-fit:contain;">
+        <div class="tile-caption">Logo on white</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="palette-heading">Typography</div>
+    <div class="type-grid">
+      <div class="type-card dark">
+        <h4>Raleway</h4>
+        <p class="desc">A modern, elegant sans-serif typeface known for its clean lines, geometric structure, and refined appearance.</p>
+        <div class="glyph" style="font-family:'Raleway',sans-serif;">Aa</div>
+        <div class="abc" style="font-family:'Raleway',sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz</div>
+      </div>
+      <div class="type-card light">
+        <h4>Open Sans</h4>
+        <p class="desc">A clean, highly legible humanist sans-serif typeface used for body copy and UI text.</p>
+        <div class="glyph" style="font-family:'Open Sans',sans-serif;">Bb</div>
+        <div class="abc" style="font-family:'Open Sans',sans-serif;">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="case-footer">
+    <a href="index.html">&larr; All work</a>
+    <a href="case-study-2.html">Next project &rarr;</a>
+  </div>
+</div>
+
+</body>
+</html>
