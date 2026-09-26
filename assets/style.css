@@ -56,14 +56,14 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 36px;
 }
-.n-logo { font-size: 13px; font-weight: 400; }
+.n-logo { font-size: 18px; font-weight: 500; }
 .n-links {
   position: absolute; left: 50%; transform: translateX(-50%);
   display: flex; gap: 32px; list-style: none;
 }
-.n-links a { font-size: 13px; color: var(--muted); transition: color .2s; }
+.n-links a { font-size: 18px; color: var(--muted); transition: color .2s; }
 .n-links a:hover { color: #fff; }
-.n-cta { font-size: 13px; color: var(--muted); transition: color .2s; }
+.n-cta { font-size: 18px; color: var(--muted); transition: color .2s; }
 .n-cta:hover { color: #fff; }
 
 /* ════════════════════════════════════════════
