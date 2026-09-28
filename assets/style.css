@@ -54,7 +54,7 @@ img { display: block; }
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 36px;
+  padding: 24px 36px;
 }
 .n-logo { font-size: 18px; font-weight: 500; }
 .n-links {
